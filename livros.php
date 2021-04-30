@@ -21,7 +21,7 @@
                     <th scope="col">Título</th>
                     <th scope="col">Autor</th>
                     <th scope="col">Valor</th>
-                    <th scope="col">Ações</th>
+                    <th scope="col" style="text-align: right">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,8 +33,8 @@
                     <td><?= $livro['titulo']; ?></td> 
                     <td><?= $livro['autor']; ?></td>
                     <td><?= $livro['valor']; ?></td>
-                    <td>
-                        <button onclick="excluir(<?= $livro['id']; ?>)">excluir</button>
+                    <td style="text-align: right">
+                        <button onclick="excluir(<?= $livro['id']; ?>)" class="btn btn-danger">excluir</button>
                         <a href="<?= $url?>/editar.php?id=<?= $livro['id']; ?>" class="btn btn-warning">Editar</a>
                     </td>
                 </tr>
@@ -56,3 +56,5 @@
         }
     </script>
 <?php require 'footer.php'; ?>
+
+
