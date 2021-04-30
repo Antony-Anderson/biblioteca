@@ -1,5 +1,5 @@
-<?php require 'biblioteca/header.php'; ?>
-<?php require $url.'/excluir.php'; ?>
+<?php require 'header.php'; ?>
+<?php require './app/livros/excluir.php'; ?>
 <?php 
    $query = "SELECT * FROM livros";
    $sql = $pdo->prepare($query);
@@ -55,4 +55,4 @@
             }
         }
     </script>
-<?php require $url.'/footer.php'; ?>
+<?php require 'footer.php'; ?>
