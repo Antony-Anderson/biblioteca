@@ -7,6 +7,13 @@
    $livros = $sql->fetchAll();
   
 ?>
+<?php 
+   $query = "SELECT * FROM clientes";
+   $sql = $pdo->prepare($query);
+   $sql->execute();
+   $clientes = $sql->fetchAll();
+  
+?>
     <main class="container mt-4">
         <?php if($excluiu){ ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -21,12 +28,14 @@
                     <th scope="col">Título</th>
                     <th scope="col">Autor</th>
                     <th scope="col">Valor</th>
+                    <th scope="col">Nome do cliente</th>
+                    <th scope="col">CPF do cliente</th>
+                    <th scope="col">Data de nascimento do cliente</th>
                     <th scope="col" style="text-align: right">Ações</th>
                 </tr>
             </thead>
             <tbody>
             <?php foreach($livros as $livro): ?>
-                <tr>
                     <th scope="row">
                         <?= $livro['id']; ?>
                     </th>

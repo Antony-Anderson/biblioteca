@@ -74,6 +74,18 @@
                 <label for="valorInput" class="form-label">Valor</label>
                 <input type="text" class="form-control" id="valorInput" name="valor" required value="<?= $livro['valor']; ?>">
             </div>
+            <div class="mb-3">
+                <label for="nomeClienteInput" class="form-label">Nome do cliente</label>
+                <input type="text" class="form-control" id="nomeClienteInput" name="nomeCliente" required>
+            </div>
+            <div class="mb-3">
+                <label for="cpfClienteInput" class="form-label">CPF do cliente</label>
+                <input type="number" class="form-control" id="cpfclienteInput" name="nomeCliente" required>
+            </div>
+            <div class="mb-3">
+                <label for="dataDeNascimentoClienteClienteInput" class="form-label">Data de nascimento do cliente</label>
+                <input type="date" class="form-control" id="dataDeNascimentoClienteInput" name="dataDeNascimentoClienteCliente" required>
+            </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
     </main>
