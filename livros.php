@@ -1,14 +1,13 @@
-<?php require 'header.php'; ?>
-<?php require './app/livros/excluir.php'; ?>
 <?php 
-   $query = "SELECT * FROM livros";
-   $sql = $pdo->prepare($query);
-   $sql->execute();
-   $livros = $sql->fetchAll();
+    require 'header.php';
+    require 'routes/livros/excluir.php'; 
+    require_once "App/Models/Livro.php";
+    $livros = new livro();
+    $livros = $livros->getAll();
 ?>
     <main class="container mt-4">
         <div class="mb-4">
-            <a class="btn btn-primary" href="<?= $url ?>/cadastrar.php">Novo</a>
+            <a class="btn btn-primary" href="<?= $url ?>/routes/livros/cadastrar.php">Novo</a>
         </div>
         <?php if($excluiu){ ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -36,7 +35,7 @@
                     <td><?= $livro['valor']; ?></td>
                     <td style="text-align: right">
                         <button onclick="excluir(<?= $livro['id']; ?>)" class="btn btn-danger">excluir</button>
-                        <a href="<?= $url?>/editar.php?id=<?= $livro['id']; ?>" class="btn btn-warning">Editar</a>
+                        <a href="<?= $url?>/routes/livros/editar.php?id=<?= $livro['id']; ?>" class="btn btn-warning">Editar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

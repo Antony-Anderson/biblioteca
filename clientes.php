@@ -1,15 +1,20 @@
-<?php require 'header.php'; ?>
-<?php require './app/clientes/excluir.php'; ?>
 <?php 
-   $query = "SELECT * FROM clientes";
-   $sql = $pdo->prepare($query);
-   $sql->execute();
-   $clientes = $sql->fetchAll();
+    require 'header.php'; 
+    require './routes/clientes/excluir.php'; 
+    require_once "App/Models/Cliente.php";
+    $clientes = new Cliente();
+    $clientes = $clientes->getAll();
+
 ?>
     <main class="container mt-4">
-        <?php if(!empty($mensagemExcluiu)){ ?>
-            <div class="<?= $mensagemExcluiu['class']; ?>" role="alert">
-                <?= $mensagemExcluiu['mensagem']; ?>
+        <div class="mb-4">
+            <a class="btn btn-primary" href="<?= $url ?>/routes/clientes/cadastrar.php">Novo</a>
+        </div>
+        <?php if($excluiuClie){ 
+            echo "Hello wolrd";
+            ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Cliente deletado com sucesso!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php } ?>
@@ -33,7 +38,7 @@
                     <td><?= $cliente['dataDeNascimento']; ?></td>
                     <td style="text-align: right">
                         <button onclick="excluir(<?= $cliente['id']; ?>)" class="btn btn-danger">excluir</button>
-                        <a href="<?= $url?>/editar.php?id=<?= $cliente['id']; ?>" class="btn btn-warning">Editar</a>
+                        <a href="<?= $url?>/routes/clientes/editar.php?id=<?= $cliente['id']; ?>" class="btn btn-warning">Editar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

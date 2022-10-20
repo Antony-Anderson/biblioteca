@@ -11,8 +11,25 @@
 </head>
 <?php 
     $url = 'http://localhost/biblioteca'; 
+     function autoLoad($arquivo){
+        $i = 0;
+        do{ 
+            $existe = file_exists($arquivo);
+            if(!$existe){
+                $arquivo = "../". $arquivo;
+            }
+            if($i > 10){
+                break;
+            }
+            $i++;
+        }while(!$existe);
+        if(file_exists($arquivo)){
+            return $arquivo;
+        } else{
+            return null;
+        }
+    }  
 ?>
-<?php require './config/database.php'; ?>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
